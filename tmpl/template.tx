@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<title>千里眼</title>
+<link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container">
+<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="brand" href="./index.html">千</a>
+<div class="nav-collapse collapse">
+<ul class="nav">
+: for $graph_name_list -> $graph_name {
+<li class=""><a href="./<: $~graph_name.index :>_0.html"><: $graph_name :></a></li>
+: }
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<script src="js/bootstrap.min.js"></script>
+
+<div class="container-fluid">
+<br>
+<br>
+<br>
+<br>
+
+<blockquote>
+<h3><: $graph_name :></h3>
+</blockquote>
+
+<h3>
+<div class="pagination">
+<ul>
+: for $view_num -> $num {
+<li><a href="<: $graph_name_num :>_<: $num :>.html"><: $num :></a></li>
+: }
+</ul>
+<p>
+: for $spliced_graphids -> $graphid {
+<a href="./png/<: $graphid :>.png"><img src="./png/<: $graphid :>.png" width="300" ></a>
+: }
+</p>
+</div>
+</h3>
+
+</body>
+</html>
+

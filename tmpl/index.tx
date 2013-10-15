@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title>千里眼</title>
+<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container">
+<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="brand" href="./index.html">千</a>
+<div class="nav-collapse collapse">
+<ul class="nav">
+: for $graph_name_list -> $graph_name {
+<li class=""><a href="./<: $~graph_name.index :>_0.html"><: $graph_name :></a></li>
+: }
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<script src="./css/bootstrap/docs/assets/js/bootstrap.min.js"></script>
+
+<div class="container-fluid">
+<br>
+<br>
+<br>
+<center>
+<i class="icon-eye-open"></i><br>
+<h1><i class="icon-eye-open"></i>&nbsp;&nbsp;&nbsp;千里眼&nbsp;&nbsp;&nbsp;<i class="icon-eye-open"></i></h1><br>
+<i class="icon-eye-open"></i>
+</center>
+</body>
+</html>
