@@ -1,5 +1,5 @@
 use strict;
-use Test::More;
+use Test::More tests => 11;
 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
