@@ -18,6 +18,8 @@ my $snrgn = Zabbix::Senrigan->new(
     create_dir  => "../hoge",
 );
 
+my @array = ("CPU utilization", "Swap usage");
+
 isa_ok($snrgn, 'Zabbix::Senrigan');
 is($snrgn->username,    'senrigun');
 is($snrgn->password,    'senrigun');
@@ -28,6 +30,6 @@ is($snrgn->db_password, 'zabbix');
 is($snrgn->period,      86400);
 is($snrgn->time,        "120000");
 is($snrgn->create_dir,  "../hoge");
-eq_array($snrgn->graph_name_list, ["CPU utilization", "Swap usage"]);
+cmp_ok(@{$snrgn->graph_name_list}, 'eq', @array);
 
 done_testing;
