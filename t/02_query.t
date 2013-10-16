@@ -13,25 +13,24 @@ my $snrgn = Zabbix::Senrigan->new(
     db_password => "zabbix",
 );
 
-subtest 'connect test' => sub {
-    my @ids;
-    my $graph_name = "CPU utilization";
+my @ids;
+my $graph_name = "CPU utilization";
 
-    my $dbh = DBI->connect($snrgn->data_source, $snrgn->db_username, $snrgn->db_password,
-            {RaiseError => 1, PrintError => 0});
+my $dbh = DBI->connect($snrgn->data_source, $snrgn->db_username, $snrgn->db_password,
+        {RaiseError => 1, PrintError => 0});
 
-    my $sth = $dbh->prepare('SELECT graphid FROM graphs WHERE name = ?');
-    $sth->execute($graph_name);
+my $sth = $dbh->prepare('SELECT graphid FROM graphs WHERE name = ?');
+$sth->execute($graph_name);
 
-    while (my $id= $sth->fetchrow_arrayref) {
-             push(@ids, $id->[0]);
-    }
+while (my $id= $sth->fetchrow_arrayref) {
+         push(@ids, $id->[0]);
+}
 
-    $sth->finish;
-    $dbh->disconnect;
+$sth->finish;
+$dbh->disconnect;
 
-    ok($dbh);
-    isa_ok($dbh, 'DBI::db');
-};
+ok($dbh);
+ok($sth);
+isa_ok($dbh, 'DBI::db');
 
 done_testing;
