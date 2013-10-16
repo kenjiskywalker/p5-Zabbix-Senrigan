@@ -1,6 +1,6 @@
 package Zabbix::Senrigan;
 
-use 5.008005;
+use 5.010;
 use strict;
 use warnings;
 use utf8;
@@ -8,7 +8,6 @@ use utf8;
 our $VERSION = "0.01";
 
 use autodie qw(open close);
-use 5.010; 
 
 use POSIX;
 use Encode;
