@@ -5,8 +5,6 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 use Zabbix::Senrigan;
 
-use DDP;
-
 my $snrgn = Zabbix::Senrigan->new(
     username    => "senrigun",
     password    => "senrigun",
