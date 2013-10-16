@@ -24,6 +24,11 @@ use Carp;
 use DBI;
 use Moo;
 
+use File::Spec;
+use File::Basename qw(dirname);
+use File::Copy::Recursive qw(rcopy);
+
+
 ### Zabbix Settings ###
 has username   => (is => 'rw');
 has password   => (is => 'rw');
@@ -47,7 +52,11 @@ sub run {
     my @graphids;
     my $create_dir = $self->create_dir;
 
-    my $tx = Text::Xslate->new(path => "$FindBin::Bin/tmpl");
+    my $basedir  = File::Spec->rel2abs(File::Spec->catdir(dirname(__FILE__)));
+    my $tmpl_dir = File::Spec->catfile($basedir, '../../tmpl');
+    my $css_dir  = File::Spec->catfile($basedir, '../../bootstrap');
+
+    my $tx = Text::Xslate->new(path => $tmpl_dir);
 
     mkdir("./$create_dir", 0755) or die if (!-d "./$create_dir");
 
@@ -86,6 +95,8 @@ sub run {
             graph_name_list => \@{$self->graph_name_list},
         }
     );
+
+    rcopy $css_dir, "$create_dir/bootstrap" or die $!;
 
     open my $fh, '>', "$create_dir/index.html" or die $!;
     print $fh encode_utf8($index_graph_data);
@@ -167,6 +178,7 @@ sub _get_view_num_from_graph_name {
 }
 
 1;
+
 __END__
 
 =encoding utf-8
