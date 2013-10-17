@@ -16,6 +16,7 @@ my $snrgn = Zabbix::Senrigan->new(
     db_username => "zabbix",
     db_password => "zabbinx",
     graph_name_list => ["CPU utilization", "Swap usage"],
+    view_graph_num => 30,
     period      => 86400,
     time        => "120000",
     create_dir  => "../test_dir",
