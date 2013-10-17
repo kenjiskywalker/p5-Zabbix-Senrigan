@@ -110,7 +110,7 @@ sub _get_graphids_from_sql {
        my $dbh = DBI->connect($self->data_source, $self->db_username, $self->db_password,
                {RaiseError => 1, PrintError => 0});
 
-       my $sth = $dbh->prepare('SELECT graphid FROM graphs WHERE name = ?');
+       my $sth = $dbh->prepare('SELECT graphid FROM graphs WHERE name = ? AND templateid IS NOT NULL');
        $sth->execute($graph_name);
 
        while (my $id= $sth->fetchrow_arrayref) {
