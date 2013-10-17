@@ -27,7 +27,6 @@ use File::Spec;
 use File::Basename qw(dirname);
 use File::Copy::Recursive qw(rcopy);
 
-
 ### Zabbix Settings ###
 has username   => (is => 'rw');
 has password   => (is => 'rw');
@@ -138,8 +137,7 @@ sub _download_graph_images{
     my $width  = 500;
     my $days   = Date::Simple::D8->new() - ( $period / 60 / 60 / 24); # 所作が合ってるのか謎
  
-    # my $mech = WWW::Mechanize->new(ssl_opts => { verify_hostname => 0 }, timeout => 180);
-    my $mech = WWW::Mechanize->new(timeout => 180);
+    my $mech = WWW::Mechanize->new(ssl_opts => { verify_hostname => 0 }, timeout => 180);
 
     $mech->timeout(30);
     $mech->get($self->zabbix_url);
