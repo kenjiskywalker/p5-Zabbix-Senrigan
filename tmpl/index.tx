@@ -22,7 +22,7 @@
     <ul class="nav nav-pills">
         <li ><a href="./index.html">千里眼</a></li>
         <li class="dropdown">
-            <a href="./index.html" data-toggle="dropdown" class="dropdown-toggle">項目<b class="caret"></b></a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">項目<b class="caret"></b></a>
             <ul class="dropdown-menu">
 : for $graph_name_list -> $graph_name {
 <li class=""><a href="./<: $~graph_name.index :>_0.html"><: $graph_name :></a></li>
